@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{8D1F4EFA-9CA5-2B55-65DF-6844DCAD7233}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BulletController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/MouseLook.cs" Line="15" Column="50" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="46" Column="53" />
+      <File FileName="Assets/Scripts/BiondeManager.cs" Line="69" Column="12" />
+      <File FileName="Assets/Scripts/GenerateBionde.cs" Line="23" Column="39" />
+      <File FileName="Assets/Scripts/GetPoints.cs" Line="60" Column="1" />
+      <File FileName="Assets/Scripts/Ai.cs" Line="34" Column="1" />
+      <File FileName="Assets/Scripts/WeaponManager.cs" Line="25" Column="74" />
+      <File FileName="Assets/Scripts/BulletController.cs" Line="24" Column="33" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Cliche" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2740bc9d-79d8-4622-90db-769c235d7720" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
