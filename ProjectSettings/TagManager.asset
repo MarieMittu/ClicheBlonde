@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bionda
+  - Bullet
+  - Book
+  - Prof
   layers:
   - Default
   - TransparentFX

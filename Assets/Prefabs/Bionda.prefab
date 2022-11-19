@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 534331191140657907}
   m_Layer: 0
   m_Name: Bionda
-  m_TagString: Untagged
+  m_TagString: Bionda
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,9 +114,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c5dd6379da4488c82516e03b639a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 4486004268963785708, guid: 41bd0f2fa006447e8be3d601747521bb, type: 3}
   genBionde: {fileID: 0}
   isHit: 0
+  isHealed: 0
+  isBlond: 0
+  isSmart: 0
   EnemyDistanceRun: 20
 --- !u!195 &534331191140657905
 NavMeshAgent:

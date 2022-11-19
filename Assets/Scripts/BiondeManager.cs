@@ -8,18 +8,21 @@ public class BiondeManager : MonoBehaviour
 
 
     public GameObject player;
+    public GameObject professor;
     public GenerateBionde genBionde;
     public bool isHit = false;
     public bool isHealed;
     public bool isBlond;
     public bool isSmart;
     private NavMeshAgent navAgent;
-    public float EnemyDistanceRun = 4.0f;
+    public float PlayerDistanceRun = 4.0f;
+    public float ProfDistanceRun = 4.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        professor = GameObject.FindGameObjectWithTag("Prof");
         navAgent = GetComponent<NavMeshAgent>();
     }
 
@@ -27,14 +30,39 @@ public class BiondeManager : MonoBehaviour
     void Update()
     {
        
+        if(!isBlond)
+        {
+            FleeFromPlayer();
+        }
+        if(isBlond)
+        {
+            FleeFromProf();
+        }
+       
+    }
 
+    void FleeFromPlayer()
+    {
         float distance = Vector3.Distance(transform.position, player.transform.position);
         Debug.Log("Distance: " + distance);
 
-        if (distance < EnemyDistanceRun)
+        if (distance < PlayerDistanceRun)
         {
             Vector3 dirToPlayer = transform.position - player.transform.position;
             Vector3 newPos = transform.position + dirToPlayer;
+            navAgent.SetDestination(newPos);
+        }
+    }
+
+    void FleeFromProf()
+    {
+        float distance = Vector3.Distance(transform.position, professor.transform.position);
+        Debug.Log("Distance: " + distance);
+
+        if (distance < ProfDistanceRun)
+        {
+            Vector3 dirToProf = transform.position - professor.transform.position;
+            Vector3 newPos = transform.position + dirToProf;
             navAgent.SetDestination(newPos);
         }
     }

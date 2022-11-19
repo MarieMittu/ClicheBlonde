@@ -1,26 +1,35 @@
 ﻿<Properties StartupConfiguration="{8D1F4EFA-9CA5-2B55-65DF-6844DCAD7233}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BulletController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RemoveProf.cs">
     <Files>
-      <File FileName="Assets/Scripts/MouseLook.cs" Line="15" Column="50" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="46" Column="53" />
-      <File FileName="Assets/Scripts/BiondeManager.cs" Line="69" Column="12" />
-      <File FileName="Assets/Scripts/GenerateBionde.cs" Line="23" Column="39" />
-      <File FileName="Assets/Scripts/GetPoints.cs" Line="60" Column="1" />
-      <File FileName="Assets/Scripts/Ai.cs" Line="34" Column="1" />
-      <File FileName="Assets/Scripts/WeaponManager.cs" Line="25" Column="74" />
-      <File FileName="Assets/Scripts/BulletController.cs" Line="24" Column="33" />
+      <File FileName="Assets/Scripts/BiondeManager.cs" Line="39" Column="28" />
+      <File FileName="Assets/Scripts/MouseLook.cs" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" />
+      <File FileName="Assets/Scripts/GenerateBionde.cs" />
+      <File FileName="Assets/Scripts/GetPoints.cs" />
+      <File FileName="Assets/Scripts/Ai.cs" />
+      <File FileName="Assets/Scripts/WeaponManager.cs" />
+      <File FileName="Assets/Scripts/BulletController.cs" />
+      <File FileName="Assets/Scripts/ProfManager.cs" />
+      <File FileName="Assets/Scripts/SpawnProf.cs" Line="36" Column="12" />
+      <File FileName="Assets/Scripts/RemoveProf.cs" Line="26" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Cliche" expanded="True" selected="True" />
+          <Node name="Cliche" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="RemoveProf.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2740bc9d-79d8-4622-90db-769c235d7720" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2ebba72a-87c4-4b61-97ad-f948c1c9c23c" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
