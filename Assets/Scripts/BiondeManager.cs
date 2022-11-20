@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class BiondeManager : MonoBehaviour
 {
 
-
+    public StaminaManager staminaManager;
     public GameObject player;
     public GameObject professor;
     public GenerateBionde genBionde;
@@ -69,16 +69,20 @@ public class BiondeManager : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet" && !isBlond)
         {
             //If the GameObject has the same tag as specified, output this message in the console
             Debug.Log("Do something else here");
-            //isHit = true;
+            isHit = true;
+            staminaManager.timeLeft += Time.deltaTime * 20;
+            Debug.Log("Increase");
             becomeBlond();
+            Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.tag == "Book")
+        else if (collision.gameObject.tag == "Prof" && isBlond) //change for "Book"
         {
-            //isHealed = true;
+            isHealed = true;
+            staminaManager.timeLeft -= Time.deltaTime * 5;
             becomeSmart();
         }
     }

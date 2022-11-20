@@ -7,23 +7,30 @@ public class ProfManager : MonoBehaviour
 {
     public GameObject bionda;
     public BiondeManager biondeManager;
+    //public Rigidbody rigidbody;
+    public bool isFollowing;
+   
 
     // Start is called before the first frame update
     void Start()
     {
         bionda = GameObject.FindGameObjectWithTag("Bionda");
+        //rigidbody = GetComponent<Rigidbody>();
+        isFollowing = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        FindClosestBionda();
 
-        if (biondeManager.isBlond)
-        {
-            //GetComponent<NavMeshAgent>().destination = bionda.transform.position;
-            FindClosestBionda();
-        }
+      
+            if (biondeManager.isBlond && isFollowing)
+            {
+                //GetComponent<NavMeshAgent>().destination = bionda.transform.position;
+                FindClosestBionda();
+            }
+        
+      
     }
 
     void FindClosestBionda()
@@ -43,7 +50,22 @@ public class ProfManager : MonoBehaviour
                     GetComponent<NavMeshAgent>().destination = closestBionda.transform.position;
                 }
             }
-        
-       
+              
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            isFollowing = false;
+            Invoke("FollowsAgain", 5f);
+
+        }
+    
+    }
+
+    void FollowsAgain()
+    {
+        isFollowing = true;
     }
 }

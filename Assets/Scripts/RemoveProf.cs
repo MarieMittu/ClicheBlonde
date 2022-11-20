@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class RemoveProf : MonoBehaviour
 {
+<<<<<<< Updated upstream
     //    public SpawnProf spawnProf;
     //    public ProfManager profManager;
     //    public
@@ -65,4 +66,57 @@ public class RemoveProf : MonoBehaviour
 	child.enabled = true;
 	}
     }
+=======
+    ////    public SpawnProf spawnProf;
+    ////    public ProfManager profManager;
+    ////    public 
+    ////public SpawnProf spawnProf;
+    //void Start()
+    //{
+    //    StartCoroutine(SelfDestruct());
+
+    //}
+
+    //IEnumerator SelfDestruct()
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(Random.Range(17f, 25f));
+    //        //        Destroy(gameObject);
+    //        //Calcolo nuova posizione per nemico
+    //        float yPos = gameObject.transform.position.y;
+    //        float xPos = Random.Range(-7, 16);
+    //        float zPos = Random.Range(5, -24);
+    //        //Nascondo nemico al giocatore
+    //        HideGameObject(gameObject);
+    //        // Chiamo il me to do "Respawn" dopo 3 secondi
+    //        Utility.Invoke(() => Respawn(gameObject, xPos, yPos, zPos), 3f);
+
+
+    //    }
+
+    //    void Respawn(GameObject gameObject, float xPos, float yPos, float zPos)
+    //    {
+    //        //Riattivo oggetto legato al nemico
+    //        SpawnGameObject(gameObject);
+    //        //Cambio posizione del nemico
+    //        MoveGameObject(gameObject, xPos, yPos, zPos);
+
+    //    }
+
+    //    void MoveGameObject(GameObject gameObject, float x, float y, float z)
+    //    {
+    //        gameObject.transform.position = new Vector3(x, y, z);
+    //    }
+
+    //    void HideGameObject(GameObject gameObject)
+    //    {
+    //        gameObject.active = false;
+    //    }
+    //    void SpawnGameObject(GameObject gameObject)
+    //    {
+    //        gameObject.active = true;
+    //    }
+    //}
+>>>>>>> Stashed changes
 }

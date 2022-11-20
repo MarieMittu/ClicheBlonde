@@ -1,17 +1,22 @@
 ﻿<Properties StartupConfiguration="{8D1F4EFA-9CA5-2B55-65DF-6844DCAD7233}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RemoveProf.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PauseMenu.cs">
     <Files>
-      <File FileName="Assets/Scripts/BiondeManager.cs" Line="39" Column="28" />
-      <File FileName="Assets/Scripts/MouseLook.cs" />
+      <File FileName="Assets/Scripts/BiondeManager.cs" Line="80" Column="43" />
+      <File FileName="Assets/Scripts/MouseLook.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PlayerMovement.cs" />
       <File FileName="Assets/Scripts/GenerateBionde.cs" />
       <File FileName="Assets/Scripts/GetPoints.cs" />
       <File FileName="Assets/Scripts/Ai.cs" />
-      <File FileName="Assets/Scripts/WeaponManager.cs" />
-      <File FileName="Assets/Scripts/BulletController.cs" />
+      <File FileName="Assets/Scripts/WeaponManager.cs" Line="20" Column="8" />
+      <File FileName="Assets/Scripts/BulletController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ProfManager.cs" />
-      <File FileName="Assets/Scripts/SpawnProf.cs" Line="36" Column="12" />
-      <File FileName="Assets/Scripts/RemoveProf.cs" Line="26" Column="1" />
+      <File FileName="Assets/Scripts/SpawnProf.cs" />
+      <File FileName="Assets/Scripts/RemoveProf.cs" />
+      <File FileName="Assets/Scripts/StaminaManager.cs" Line="32" Column="55" />
+      <File FileName="Assets/Scripts/MainMenuController.cs" Line="10" Column="44" />
+      <File FileName="Assets/Scripts/GameplayUIController.cs" Line="10" Column="44" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="16" Column="1" />
+      <File FileName="Assets/Scripts/PauseMenu.cs" Line="23" Column="52" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +24,7 @@
           <Node name="Cliche" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="RemoveProf.cs" selected="True" />
+                <Node name="PauseMenu.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -29,7 +34,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="2ebba72a-87c4-4b61-97ad-f948c1c9c23c" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="697bb934-4ff9-4885-a1f9-4aa5943cb5e9" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
