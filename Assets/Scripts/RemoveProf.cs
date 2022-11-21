@@ -34,7 +34,7 @@ public class RemoveProf : MonoBehaviour
 	    componentProf = gameObject.GetComponentsInChildren<Renderer>();
             //Nascondo il game Object Professor al player
 	    HideGameObject(gameObject, componentProf);
-	    yield return new WaitForSeconds(3f);
+	    yield return new WaitForSeconds(UnityEngine.Random.Range(7f, 12f));
             // Dopo 3 secondi sposto il nemico di posizione e lo faccio riapparire
 	    MoveGameObject(gameObject, xPos, yPos, zPos);
 	    SpawnGameObject(gameObject, componentProf);
@@ -67,4 +67,8 @@ public class RemoveProf : MonoBehaviour
 	}
         ProfManager.Instance.EnableState();
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

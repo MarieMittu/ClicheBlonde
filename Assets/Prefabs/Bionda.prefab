@@ -121,7 +121,7 @@ MonoBehaviour:
   genBionde: {fileID: 0}
   isHit: 0
   isHealed: 0
-  isBlond: 0
+  isBlond: 1
   isSmart: 0
   PlayerDistanceRun: 4
   ProfDistanceRun: 4
