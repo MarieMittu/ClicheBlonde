@@ -6,9 +6,29 @@ using UnityEngine.UI;
 public class StaminaManager : MonoBehaviour
 {
     Image timerBar;
-    public float maxTime = 100f;
-    public float timeLeft;
-    public BiondeManager biondeManager;
+    private float maxTime = 100f;
+    private float timeLeft;
+//    public BiondeManager biondeManager;
+    private static StaminaManager _instance;    
+
+    private StaminaManager() { }
+
+    public static StaminaManager Instance
+    {
+        get
+        {
+            if(_instance == null)
+                _instance = new StaminaManager();
+
+            return _instance;
+        }
+    }
+    
+
+    void Awake()
+     {
+         _instance = this;
+     }
 
     // Start is called before the first frame update
     void Start()
@@ -33,23 +53,26 @@ public class StaminaManager : MonoBehaviour
         }
     }
 
-    void Inscrease()
+    public void Increase()
     {
-        if (biondeManager.isHit)
-        {
+//       if (biondeManager.isHit)
+//        {
             timeLeft += 20f;
-            Debug.Log("Prize");
+            Debug.Log("Time Increase");
             if(timeLeft > maxTime)
             {
                 timeLeft = maxTime;
             }
-        }
+	    timerBar.fillAmount = timeLeft / maxTime;
+//        }
     }
-    void Decrease()
+    public void Decrease()
     {
-        if (biondeManager.isHealed)
-        {
-            timeLeft -= 5f;
-        }
+//        if (biondeManager.isHealed)
+//        {
+	    Debug.Log("Time Decrease");
+            timeLeft -= 15f;
+//        }
+	  timerBar.fillAmount = timeLeft / maxTime;
     }
 }

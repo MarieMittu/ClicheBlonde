@@ -5,36 +5,62 @@ using UnityEngine.AI;
 
 public class BiondeManager : MonoBehaviour
 {
-
-    public StaminaManager staminaManager;
     public GameObject player;
     public GameObject professor;
     public GenerateBionde genBionde;
-    public bool isHit = false;
-    public bool isHealed;
-    public bool isBlond;
-    public bool isSmart;
+    public bool isHit { get; set; }
+    public bool isHealed { get; set; }
+    public bool isBlond { get; set; }
+    public bool isSmart { get; set; }
+    private bool isProfInstantiated;
     private NavMeshAgent navAgent;
     public float PlayerDistanceRun = 4.0f;
     public float ProfDistanceRun = 4.0f;
 
+    private static BiondeManager _instance;    
+
+    private BiondeManager() { }
+
+    public static BiondeManager Instance
+    {
+        get
+        {
+            if(_instance == null)
+                _instance = new BiondeManager();
+
+            return _instance;
+        }
+    }
+    
+
+    void Awake()
+    {
+        _instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        isProfInstantiated = false;
         player = GameObject.FindGameObjectWithTag("Player");
-        professor = GameObject.FindGameObjectWithTag("Prof");
         navAgent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        
         if(!isBlond)
         {
             FleeFromPlayer();
         }
-        if(isBlond)
+        if(!isProfInstantiated && SpawnProf.Instance.isProfSpawned) 
+        {
+            professor = GameObject.FindGameObjectWithTag("Prof");
+	    isProfInstantiated = true;
+	    Debug.Log("Prof has been instantiated.");
+        }
+        if(isBlond && SpawnProf.Instance.isProfSpawned && isProfInstantiated)
         {
             FleeFromProf();
         }
@@ -69,20 +95,26 @@ public class BiondeManager : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Bullet" && !isBlond)
+        Debug.Log("collision isBlond Value : " + isBlond);
+	Debug.Log("collision isBlond Instance Value : " + BiondeManager.Instance.isBlond);
+        if (collision.gameObject.tag == "Bullet" && !BiondeManager.Instance.isBlond)
+//        if (collision.gameObject.tag == "Bullet")
         {
+//            staminaManager = Cam.GetComponent<StaminaManager();
+//	    staminaManager = GameObject.GetComponent<StaminaManager>();
             //If the GameObject has the same tag as specified, output this message in the console
             Debug.Log("Do something else here");
-            isHit = true;
-            staminaManager.timeLeft += Time.deltaTime * 20;
+//            isHit = true;
+            StaminaManager.Instance.Increase();
             Debug.Log("Increase");
             becomeBlond();
             Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.tag == "Prof" && isBlond) //change for "Book"
+        else if ( (collision.gameObject.tag == "Prof" || collision.gameObject.tag == "Book") && _instance.isBlond) //change for "Book"
         {
             isHealed = true;
-            staminaManager.timeLeft -= Time.deltaTime * 5;
+            StaminaManager.Instance.Decrease();
+            Debug.Log("Increase");
             becomeSmart();
         }
     }
@@ -92,10 +124,11 @@ public class BiondeManager : MonoBehaviour
         
             //become blond
             Debug.Log("I'm BLOND!");
-            genBionde.biondeCount += 1;
+//            genBionde.biondeCount += 1;
             isBlond = true;
+	    Debug.Log("Blond value : " + isBlond);
             isSmart = false;
-        
+            _instance = this;
     }
 
     public void becomeSmart()
@@ -105,6 +138,6 @@ public class BiondeManager : MonoBehaviour
             Debug.Log("I'm SMART!");
             isSmart = true;
             isBlond = false;
-        
+            _instance = this;
     }
 }

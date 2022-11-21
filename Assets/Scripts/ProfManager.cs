@@ -6,14 +6,35 @@ using UnityEngine.AI;
 public class ProfManager : MonoBehaviour
 {
     public GameObject bionda;
-    public BiondeManager biondeManager;
     //public Rigidbody rigidbody;
     public bool isFollowing;
+    private bool isActive { get; set; }
+
+    private static ProfManager _instance;    
+
+    private ProfManager() { }
+
+    public static ProfManager Instance
+    {
+        get
+        {
+            if(_instance == null)
+                _instance = new ProfManager();
+
+            return _instance;
+        }
+    }
    
+    void Awake()
+    {
+        _instance = this;
+        ProfManager.Instance.EnableState();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+	Debug.Log("Started ProfManager");
         bionda = GameObject.FindGameObjectWithTag("Bionda");
         //rigidbody = GetComponent<Rigidbody>();
         isFollowing = true;
@@ -23,9 +44,13 @@ public class ProfManager : MonoBehaviour
     void Update()
     {
 
+	    Debug.Log("isBlond value : " + BiondeManager.Instance.isBlond);
+	    Debug.Log("isFollowing value: " + isFollowing);
+
       
-            if (biondeManager.isBlond && isFollowing)
+            if (BiondeManager.Instance.isBlond && isFollowing && ProfManager.Instance.isActive)
             {
+                Debug.Log("Finding closest Bionda");
                 //GetComponent<NavMeshAgent>().destination = bionda.transform.position;
                 FindClosestBionda();
             }
@@ -67,5 +92,15 @@ public class ProfManager : MonoBehaviour
     void FollowsAgain()
     {
         isFollowing = true;
+    }
+
+    public void DisableState()
+    {
+        ProfManager.Instance.isActive = false;
+    }
+    
+    public void EnableState()
+    {
+        ProfManager.Instance.isActive = true;
     }
 }

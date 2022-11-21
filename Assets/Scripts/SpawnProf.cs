@@ -5,12 +5,34 @@ using UnityEngine;
 public class SpawnProf : MonoBehaviour
 {
     public GameObject professor;
+    public bool isProfSpawned { get; set; }
+    public static SpawnProf _instance;    
+
+    private SpawnProf() { }
+
+    public static SpawnProf Instance
+    {
+        get
+        {
+            if(_instance == null)
+                _instance = new SpawnProf();
+
+            return _instance;
+        }
+    }
+    
    
     //public int profCount;
+
+    void Awake()
+    {
+        _instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+	isProfSpawned = false;
         StartCoroutine(ProfDrop(1));
     }
 
@@ -29,10 +51,13 @@ public class SpawnProf : MonoBehaviour
                 float xPos = Random.Range(-7, 16);
                 float zPos = Random.Range(5, -24);
                 Instantiate(professor, new Vector3(xPos, 0, zPos), Quaternion.identity);
+		isProfSpawned = true;
+	        _instance = this;
             }
 
 
 
         //}
     }
+
 }
