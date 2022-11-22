@@ -67,8 +67,4 @@ public class RemoveProf : MonoBehaviour
 	}
         ProfManager.Instance.EnableState();
     }
-<<<<<<< Updated upstream
 }
-=======
-}
->>>>>>> Stashed changes

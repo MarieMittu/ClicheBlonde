@@ -70,7 +70,7 @@ public class BiondeManager : MonoBehaviour
     void FleeFromPlayer()
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        Debug.Log("Distance: " + distance);
+        //Debug.Log("Distance: " + distance);
 
         if (distance < PlayerDistanceRun)
         {
@@ -83,7 +83,7 @@ public class BiondeManager : MonoBehaviour
     void FleeFromProf()
     {
         float distance = Vector3.Distance(transform.position, professor.transform.position);
-        Debug.Log("Distance: " + distance);
+        //Debug.Log("Distance: " + distance);
 
         if (distance < ProfDistanceRun)
         {
@@ -124,7 +124,7 @@ public class BiondeManager : MonoBehaviour
         
             //become blond
             Debug.Log("I'm BLOND!");
-//            genBionde.biondeCount += 1;
+            genBionde.biondeCount -= 1;
             isBlond = true;
 	    Debug.Log("Blond value : " + isBlond);
             isSmart = false;
@@ -136,6 +136,7 @@ public class BiondeManager : MonoBehaviour
         
             //become smart
             Debug.Log("I'm SMART!");
+            
             isSmart = true;
             isBlond = false;
             _instance = this;

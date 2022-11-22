@@ -23,7 +23,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &534331191140657919
 Transform:
   m_ObjectHideFlags: 0
@@ -115,14 +115,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c5dd6379da4488c82516e03b639a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminaManager: {fileID: 0}
   player: {fileID: 4486004268963785708, guid: 41bd0f2fa006447e8be3d601747521bb, type: 3}
   professor: {fileID: 8104105636208619700, guid: 0e7dea5a0662c468595fb6f5b583ce03, type: 3}
   genBionde: {fileID: 0}
-  isHit: 0
-  isHealed: 0
-  isBlond: 1
-  isSmart: 0
   PlayerDistanceRun: 4
   ProfDistanceRun: 4
 --- !u!195 &534331191140657905

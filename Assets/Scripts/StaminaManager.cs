@@ -46,7 +46,7 @@ public class StaminaManager : MonoBehaviour
             timerBar.fillAmount = timeLeft / maxTime;
             //Inscrease();
             //Decrease();
-            Debug.Log("Time left " + timeLeft);
+            //Debug.Log("Time left " + timeLeft);
         } else
         {
             FindObjectOfType<GameManager>().EndGame();

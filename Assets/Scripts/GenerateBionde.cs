@@ -22,7 +22,7 @@ public class GenerateBionde : MonoBehaviour
             xPos = Random.Range(-7, 16);
             zPos = Random.Range(5, -24);
             Instantiate(bionda, new Vector3(xPos, 0, zPos), Quaternion.identity);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
             biondeCount += 1;
         }
     }

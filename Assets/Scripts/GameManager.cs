@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     {
         
         SceneManager.LoadScene("GameOver");
-     
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
 
     }
 }
