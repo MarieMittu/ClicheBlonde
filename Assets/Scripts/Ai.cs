@@ -9,6 +9,8 @@ public class Ai : MonoBehaviour
 
     public float radius;
 
+    public Animator biondaAnimator;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -19,6 +21,7 @@ public class Ai : MonoBehaviour
         if (!agent.hasPath)
         {
             agent.SetDestination(GetPoints.Instance.GetRandomPoint(transform, radius));
+            biondaAnimator.SetBool("isRunning", true);
         }
     }
 

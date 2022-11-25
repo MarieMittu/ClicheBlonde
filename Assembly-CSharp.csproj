@@ -63,6 +63,7 @@
     <Compile Include="Assets/Scripts/PauseMenu.cs" />
     <Compile Include="Assets/Scripts/WeaponManager.cs" />
     <Compile Include="Assets/Scripts/GenerateBionde.cs" />
+    <Compile Include="Assets/Scripts/DestroyGameObject.cs" />
     <Compile Include="Assets/Scripts/BiondeManager.cs" />
     <Compile Include="Assets/Scripts/GetPoints.cs" />
     <Compile Include="Assets/Scripts/Ai.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets/Scripts/SpawnProf.cs" />
     <Compile Include="Assets/Scripts/ProfManager.cs" />
     <Compile Include="Assets/Scripts/BulletController.cs" />
+    <Compile Include="Assets/Scripts/PinkParticles.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

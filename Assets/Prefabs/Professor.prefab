@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8104105636208619707}
   - component: {fileID: 8104105636208619706}
   - component: {fileID: -5343853061027696529}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Professor
   m_TagString: Prof
   m_Icon: {fileID: 0}
@@ -137,7 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bionda: {fileID: 534331191140657915, guid: 59e31b51f054643c599b2e40b3312f2b, type: 3}
-  biondeManager: {fileID: 534331191140657918, guid: 59e31b51f054643c599b2e40b3312f2b, type: 3}
   isFollowing: 1
 --- !u!114 &-5343853061027696529
 MonoBehaviour:
@@ -151,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6353c20c770e848bba1170432cc920d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  componentProf: []
 --- !u!1 &8104105637597196421
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 8104105637597196425}
   - component: {fileID: 8104105637597196422}
   - component: {fileID: 8104105637597196423}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Book
   m_TagString: Book
   m_Icon: {fileID: 0}

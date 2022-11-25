@@ -120,6 +120,7 @@ MonoBehaviour:
   genBionde: {fileID: 0}
   PlayerDistanceRun: 4
   ProfDistanceRun: 4
+  biondaAnimator: {fileID: 0}
 --- !u!195 &534331191140657905
 NavMeshAgent:
   m_ObjectHideFlags: 0

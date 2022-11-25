@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2270773489217422730}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2270773489220131953}
   - component: {fileID: 2270773489220131958}
   - component: {fileID: 2270773489220131959}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 2270773489240087403}
   - component: {fileID: 2270773489240087402}
   - component: {fileID: 2270773489240087413}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FPS_Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -203,9 +203,9 @@ GameObject:
   - component: {fileID: 2270773489632550829}
   - component: {fileID: 2270773489632550818}
   - component: {fileID: 2270773489632550830}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 2270773490205254303}
   - component: {fileID: 2270773490205254300}
   - component: {fileID: 2270773490205254296}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

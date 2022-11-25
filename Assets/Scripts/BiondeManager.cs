@@ -16,6 +16,9 @@ public class BiondeManager : MonoBehaviour
     private NavMeshAgent navAgent;
     public float PlayerDistanceRun = 4.0f;
     public float ProfDistanceRun = 4.0f;
+    public Animator biondaAnimator;
+    public GameObject pinkShot;
+    public ParticleSystem particleSystem;
 
     private static BiondeManager _instance;    
 
@@ -77,6 +80,11 @@ public class BiondeManager : MonoBehaviour
             Vector3 dirToPlayer = transform.position - player.transform.position;
             Vector3 newPos = transform.position + dirToPlayer;
             navAgent.SetDestination(newPos);
+            biondaAnimator.SetBool("isRunning", true);
+            biondaAnimator.SetBool("isBlond", false);
+        } else
+        {
+            biondaAnimator.SetBool("isRunning", false);
         }
     }
 
@@ -90,6 +98,12 @@ public class BiondeManager : MonoBehaviour
             Vector3 dirToProf = transform.position - professor.transform.position;
             Vector3 newPos = transform.position + dirToProf;
             navAgent.SetDestination(newPos);
+            biondaAnimator.SetBool("isRunning", true);
+            biondaAnimator.SetBool("isBlond", true);
+        }
+        else
+        {
+            biondaAnimator.SetBool("isRunning", false);
         }
     }
 
@@ -109,6 +123,8 @@ public class BiondeManager : MonoBehaviour
             Debug.Log("Increase");
             becomeBlond();
             Destroy(collision.gameObject);
+            Instantiate(pinkShot, transform.position, Quaternion.identity);
+            particleSystem.Play();
         }
         else if ( (collision.gameObject.tag == "Prof" || collision.gameObject.tag == "Book") && _instance.isBlond) //change for "Book"
         {
