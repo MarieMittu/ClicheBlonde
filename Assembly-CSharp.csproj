@@ -75,6 +75,7 @@
     <Compile Include="Assets/Scripts/SpawnProf.cs" />
     <Compile Include="Assets/Scripts/ProfManager.cs" />
     <Compile Include="Assets/Scripts/BulletController.cs" />
+    <Compile Include="Assets/Scripts/ScoreManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

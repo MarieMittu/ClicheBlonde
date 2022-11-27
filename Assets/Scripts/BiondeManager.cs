@@ -129,6 +129,7 @@ public class BiondeManager : MonoBehaviour
             Destroy(collision.gameObject);
             Instantiate(pinkShot, transform.position, Quaternion.identity);
             particleSystem.Play();
+            ScoreManager.Instance.AddScore();
         }
         else if ( (collision.gameObject.tag == "Prof" || collision.gameObject.tag == "Book") && this.gameObject.tag != "Smart") //change for "Book"
         {
