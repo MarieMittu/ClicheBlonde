@@ -44,11 +44,10 @@ public class ProfManager : MonoBehaviour
     void Update()
     {
 
-	    Debug.Log("isBlond value : " + BiondeManager.Instance.isBlond);
 	    Debug.Log("isFollowing value: " + isFollowing);
-
-      
-            if (BiondeManager.Instance.isBlond && isFollowing && ProfManager.Instance.isActive)
+	
+ 	      
+            if (BiondeManager.Instance.checkObjectBlond() && isFollowing && ProfManager.Instance.isActive)
             {
                 Debug.Log("Finding closest Bionda");
                 //GetComponent<NavMeshAgent>().destination = bionda.transform.position;
@@ -67,13 +66,16 @@ public class ProfManager : MonoBehaviour
 
             foreach (BiondeManager currentBionda in allBionde)
             {
-                float distToBionda = (currentBionda.transform.position - this.transform.position).sqrMagnitude;
+		if (currentBionda.tag != "Smart")
+		{
+                	float distToBionda = (currentBionda.transform.position - this.transform.position).sqrMagnitude;
                 if (distToBionda < distToClosestBionda)
                 {
                     distToClosestBionda = distToBionda;
                     closestBionda = currentBionda;
                     GetComponent<NavMeshAgent>().destination = closestBionda.transform.position;
                 }
+		}
             }
               
     }

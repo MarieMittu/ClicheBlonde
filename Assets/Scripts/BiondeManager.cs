@@ -10,10 +10,9 @@ public class BiondeManager : MonoBehaviour
     public GenerateBionde genBionde;
     public bool isHit { get; set; }
     public bool isHealed { get; set; }
-    public bool isBlond { get; set; }
-    public bool isSmart { get; set; }
     private bool isProfInstantiated;
     private NavMeshAgent navAgent;
+    private BiondeManager[] allBionde;
     public float PlayerDistanceRun = 4.0f;
     public float ProfDistanceRun = 4.0f;
     public Animator biondaAnimator;
@@ -47,26 +46,30 @@ public class BiondeManager : MonoBehaviour
         isProfInstantiated = false;
         player = GameObject.FindGameObjectWithTag("Player");
         navAgent = GetComponent<NavMeshAgent>();
+	allBionde = GameObject.FindObjectsOfType<BiondeManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if(!isBlond)
-        {
-            FleeFromPlayer();
-        }
         if(!isProfInstantiated && SpawnProf.Instance.isProfSpawned) 
         {
             professor = GameObject.FindGameObjectWithTag("Prof");
 	    isProfInstantiated = true;
 	    Debug.Log("Prof has been instantiated.");
         }
-        if(isBlond && SpawnProf.Instance.isProfSpawned && isProfInstantiated)
-        {
-            FleeFromProf();
-        }
+	foreach (BiondeManager currentBionda in allBionde) 
+	{
+        
+            if(currentBionda.tag == "Smart")
+            {
+                FleeFromPlayer();
+            }
+            if(currentBionda.tag != "Smart" && SpawnProf.Instance.isProfSpawned && isProfInstantiated)
+            {
+                FleeFromProf();
+            }
+	}
        
     }
 
@@ -109,9 +112,10 @@ public class BiondeManager : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collision isBlond Value : " + isBlond);
-	Debug.Log("collision isBlond Instance Value : " + BiondeManager.Instance.isBlond);
-        if (collision.gameObject.tag == "Bullet" && !BiondeManager.Instance.isBlond)
+        GameObject currentBlonde = collision.gameObject;
+        Debug.Log("Current Game Object is : " + currentBlonde);
+	Debug.Log("Current Collider is : " + collision.collider);
+        if (collision.gameObject.tag == "Bullet" && this.gameObject.tag != "Blond")
 //        if (collision.gameObject.tag == "Bullet")
         {
 //            staminaManager = Cam.GetComponent<StaminaManager();
@@ -120,18 +124,19 @@ public class BiondeManager : MonoBehaviour
             Debug.Log("Do something else here");
 //            isHit = true;
             StaminaManager.Instance.Increase();
-            Debug.Log("Increase");
-            becomeBlond();
+            Debug.Log("Increase");	    
+            this.becomeBlond();
             Destroy(collision.gameObject);
             Instantiate(pinkShot, transform.position, Quaternion.identity);
             particleSystem.Play();
         }
-        else if ( (collision.gameObject.tag == "Prof" || collision.gameObject.tag == "Book") && _instance.isBlond) //change for "Book"
+        else if ( (collision.gameObject.tag == "Prof" || collision.gameObject.tag == "Book") && this.gameObject.tag != "Smart") //change for "Book"
         {
+	    Debug.Log("prof collided with : " + this.gameObject);
             isHealed = true;
             StaminaManager.Instance.Decrease();
             Debug.Log("Increase");
-            becomeSmart();
+            this.becomeSmart();
         }
     }
 
@@ -140,10 +145,8 @@ public class BiondeManager : MonoBehaviour
         
             //become blond
             Debug.Log("I'm BLOND!");
-            genBionde.biondeCount -= 1;
-            isBlond = true;
-	    Debug.Log("Blond value : " + isBlond);
-            isSmart = false;
+//	    this.isBlond = true;
+	    this.gameObject.tag = "Blond";
             _instance = this;
     }
 
@@ -151,10 +154,20 @@ public class BiondeManager : MonoBehaviour
     {
         
             //become smart
-            Debug.Log("I'm SMART!");
-            
-            isSmart = true;
-            isBlond = false;
+            Debug.Log("I'm SMART!");		
+	    this.gameObject.tag = "Smart";
             _instance = this;
+    }
+
+    public bool checkObjectBlond()
+    {
+        foreach (BiondeManager currentBionda in allBionde) 
+	{
+           if (currentBionda.tag != "Smart")
+           {
+              return true;
+           }
+        }
+	return false;
     }
 }
