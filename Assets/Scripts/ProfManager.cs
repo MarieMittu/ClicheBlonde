@@ -10,7 +10,10 @@ public class ProfManager : MonoBehaviour
     public bool isFollowing;
     private bool isActive { get; set; }
 
-    private static ProfManager _instance;    
+    private static ProfManager _instance;
+
+    public GameObject pinkShot;
+    public ParticleSystem particleSystem;
 
     private ProfManager() { }
 
@@ -35,7 +38,7 @@ public class ProfManager : MonoBehaviour
     void Start()
     {
 	Debug.Log("Started ProfManager");
-        bionda = GameObject.FindGameObjectWithTag("Bionda");
+        bionda = GameObject.FindGameObjectWithTag("Blond");
         //rigidbody = GetComponent<Rigidbody>();
         isFollowing = true;
     }
@@ -66,7 +69,7 @@ public class ProfManager : MonoBehaviour
 
             foreach (BiondeManager currentBionda in allBionde)
             {
-		if (currentBionda.tag != "Smart")
+		if (currentBionda.tag == "Blond")
 		{
                 	float distToBionda = (currentBionda.transform.position - this.transform.position).sqrMagnitude;
                 if (distToBionda < distToClosestBionda)
@@ -84,6 +87,9 @@ public class ProfManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            Instantiate(pinkShot, transform.position, Quaternion.identity);
+            particleSystem.Play();
+
             isFollowing = false;
             Invoke("FollowsAgain", 5f);
 

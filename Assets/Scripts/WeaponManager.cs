@@ -31,10 +31,10 @@ public class WeaponManager : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(playerCam.transform.position, transform.forward, out hit, range))
         {
-            BiondeManager biondeManager = hit.transform.GetComponent<BiondeManager>();
-            if(biondeManager != null)
+            SmartManager smartManager = hit.transform.GetComponent<SmartManager>();
+            if(smartManager != null)
             {
-                biondeManager.becomeBlond();
+                Destroy(smartManager.gameObject);
             }
         }
     }

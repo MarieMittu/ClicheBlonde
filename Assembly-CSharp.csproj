@@ -62,6 +62,7 @@
     <Compile Include="Assets/Scripts/Utility.cs" />
     <Compile Include="Assets/Scripts/PauseMenu.cs" />
     <Compile Include="Assets/Scripts/WeaponManager.cs" />
+    <Compile Include="Assets/Scripts/ScoreManager.cs" />
     <Compile Include="Assets/Scripts/GenerateBionde.cs" />
     <Compile Include="Assets/Scripts/DestroyGameObject.cs" />
     <Compile Include="Assets/Scripts/PinkParticles.cs" />
@@ -75,7 +76,9 @@
     <Compile Include="Assets/Scripts/SpawnProf.cs" />
     <Compile Include="Assets/Scripts/ProfManager.cs" />
     <Compile Include="Assets/Scripts/BulletController.cs" />
-    <Compile Include="Assets/Scripts/ScoreManager.cs" />
+    <Compile Include="Assets/Scripts/SmartManager.cs" />
+    <Compile Include="Assets/Scripts/GenerateSmart.cs" />
+    <Compile Include="Assets/Scripts/AiSmart.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

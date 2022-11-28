@@ -381,6 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 183883552}
   score: 0
+  newscore: 0
 --- !u!1 &428741011
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,30 +1361,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1414849122}
-  - component: {fileID: 1414849121}
+  - component: {fileID: 1414849123}
   m_Layer: 0
-  m_Name: BiondeSpawner
+  m_Name: SmartSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1414849121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414849120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b80cf3d979d141db9ab8d06657e8d89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bionda: {fileID: 6558708387153558325, guid: d434a40cb650641d385d237db17fc692, type: 3}
-  xPos: 0
-  zPos: 0
-  biondeCount: 0
 --- !u!4 &1414849122
 Transform:
   m_ObjectHideFlags: 0
@@ -1399,6 +1384,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1414849123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414849120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c98f95cf97fa4634b106f3d8e5d8e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smart: {fileID: 33386208257602121, guid: 110479f04ff4a463ca8e33114f558a8e, type: 3}
+  xPos: 0
+  zPos: 0
+  smartCount: 0
 --- !u!1 &1539133408
 GameObject:
   m_ObjectHideFlags: 0

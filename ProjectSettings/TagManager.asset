@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Book
   - Prof
+  - Blond
+  - Smart
   layers:
   - Default
   - TransparentFX

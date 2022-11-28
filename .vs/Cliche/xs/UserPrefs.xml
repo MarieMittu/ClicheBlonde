@@ -1,25 +1,18 @@
 ﻿<Properties StartupConfiguration="{8D1F4EFA-9CA5-2B55-65DF-6844DCAD7233}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScoreManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Ai.cs">
     <Files>
-      <File FileName="Assets/Scripts/ScoreManager.cs" Line="46" Column="25" />
-      <File FileName="Assets/Scripts/BulletController.cs" Line="10" Column="25" />
-      <File FileName="Assets/Scripts/BiondeManager.cs" Line="123" Column="35" />
-      <File FileName="Assets/Scripts/RemoveProf.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MouseLook.cs" />
-      <File FileName="Assets/Scripts/PlayerMovement.cs" />
-      <File FileName="Assets/Scripts/GenerateBionde.cs" />
-      <File FileName="Assets/Scripts/GetPoints.cs" />
-      <File FileName="Assets/Scripts/Ai.cs" />
-      <File FileName="Assets/Scripts/WeaponManager.cs" />
-      <File FileName="Assets/Scripts/ProfManager.cs" />
-      <File FileName="Assets/Scripts/SpawnProf.cs" />
-      <File FileName="Assets/Scripts/StaminaManager.cs" Line="12" Column="5" />
-      <File FileName="Assets/Scripts/MainMenuController.cs" />
-      <File FileName="Assets/Scripts/GameplayUIController.cs" />
-      <File FileName="Assets/Scripts/GameManager.cs" />
-      <File FileName="Assets/Scripts/PauseMenu.cs" />
-      <File FileName="Assets/Scripts/DestroyGameObject.cs" />
-      <File FileName="Assets/Scripts/PinkParticles.cs" />
+      <File FileName="Assets/Scripts/BulletController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BiondeManager.cs" Line="103" Column="75" />
+      <File FileName="Assets/Scripts/SmartManager.cs" Line="104" Column="13" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GenerateBionde.cs" Line="7" Column="7" />
+      <File FileName="Assets/Scripts/GetPoints.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/WeaponManager.cs" Line="37" Column="50" />
+      <File FileName="Assets/Scripts/ProfManager.cs" Line="92" Column="1" />
+      <File FileName="Assets/Scripts/SpawnProf.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GenerateSmart.cs" Line="25" Column="46" />
+      <File FileName="Assets/Scripts/Ai.cs" Line="37" Column="10" />
+      <File FileName="Assets/Scripts/AiSmart.cs" Line="24" Column="60" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -27,7 +20,7 @@
           <Node name="Cliche" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="ScoreManager.cs" selected="True" />
+                <Node name="Ai.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -37,7 +30,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="0bd0b60e-3d6e-4325-a178-1cfeca5683cf" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="38f0a441-759a-45de-9b66-745813b332d6" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

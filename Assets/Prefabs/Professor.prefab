@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8104105636208619707}
   - component: {fileID: 8104105636208619706}
   - component: {fileID: -5343853061027696529}
+  - component: {fileID: -8580831823823274942}
   m_Layer: 7
   m_Name: Professor
   m_TagString: Prof
@@ -136,8 +137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8091c99dd4a74d78a2a9b38299f465f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bionda: {fileID: 534331191140657915, guid: 59e31b51f054643c599b2e40b3312f2b, type: 3}
-  isFollowing: 1
+  bionda: {fileID: 2728650708205090581, guid: d1e5053de75f047b6843eed872698887, type: 3}
+  isFollowing: 0
+  pinkShot: {fileID: 4941605333276153686, guid: 1cc42b9afeca448f4bf6fa12000502da, type: 3}
+  particleSystem: {fileID: 4941605333276153684, guid: 1cc42b9afeca448f4bf6fa12000502da, type: 3}
 --- !u!114 &-5343853061027696529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +154,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   componentProf: []
+--- !u!54 &-8580831823823274942
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8104105636208619700}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8104105637597196421
 GameObject:
   m_ObjectHideFlags: 0

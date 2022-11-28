@@ -31,7 +31,7 @@ public class Ai : MonoBehaviour
                foreach (GameObject currentBionda in allBionde) 
 	       {
                     currentBionda.GetComponent<Animator>();
-                    biondaAnimator.SetBool("isRunning", true);
+                    
                }
             }
         }
