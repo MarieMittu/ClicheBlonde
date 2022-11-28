@@ -12,7 +12,7 @@ public class BiondeManager : MonoBehaviour
     public bool isHealed { get; set; }
     private bool isProfInstantiated;
     private NavMeshAgent navAgent;
-    private BiondeManager[] allBionde;
+    private GameObject[] allBionde;
     public float PlayerDistanceRun = 4.0f;
     public float ProfDistanceRun = 4.0f;
     public Animator biondaAnimator;
@@ -46,7 +46,8 @@ public class BiondeManager : MonoBehaviour
         isProfInstantiated = false;
         player = GameObject.FindGameObjectWithTag("Player");
         navAgent = GetComponent<NavMeshAgent>();
-	allBionde = GameObject.FindObjectsOfType<BiondeManager>();
+	allBionde = GameObject.FindGameObjectsWithTag("Bionda");
+        _instance = this;
     }
 
     // Update is called once per frame
@@ -58,23 +59,24 @@ public class BiondeManager : MonoBehaviour
 	    isProfInstantiated = true;
 	    Debug.Log("Prof has been instantiated.");
         }
-	foreach (BiondeManager currentBionda in allBionde) 
+	foreach (GameObject currentBionda in allBionde) 
 	{
         
             if(currentBionda.tag == "Smart")
             {
-                FleeFromPlayer();
+                FleeFromPlayer(currentBionda);
             }
             if(currentBionda.tag != "Smart" && SpawnProf.Instance.isProfSpawned && isProfInstantiated)
             {
-                FleeFromProf();
+                FleeFromProf(currentBionda);
             }
 	}
        
     }
 
-    void FleeFromPlayer()
+    void FleeFromPlayer(GameObject currentBionda)
     {
+        biondaAnimator = currentBionda.GetComponent<Animator>();
         float distance = Vector3.Distance(transform.position, player.transform.position);
         //Debug.Log("Distance: " + distance);
 
@@ -91,8 +93,9 @@ public class BiondeManager : MonoBehaviour
         }
     }
 
-    void FleeFromProf()
+    void FleeFromProf(GameObject currentBionda)
     {
+        biondaAnimator = currentBionda.GetComponent<Animator>();
         float distance = Vector3.Distance(transform.position, professor.transform.position);
         //Debug.Log("Distance: " + distance);
 
@@ -129,7 +132,6 @@ public class BiondeManager : MonoBehaviour
             Destroy(collision.gameObject);
             Instantiate(pinkShot, transform.position, Quaternion.identity);
             particleSystem.Play();
-            ScoreManager.Instance.AddScore();
         }
         else if ( (collision.gameObject.tag == "Prof" || collision.gameObject.tag == "Book") && this.gameObject.tag != "Smart") //change for "Book"
         {
@@ -162,7 +164,7 @@ public class BiondeManager : MonoBehaviour
 
     public bool checkObjectBlond()
     {
-        foreach (BiondeManager currentBionda in allBionde) 
+        foreach (GameObject currentBionda in allBionde) 
 	{
            if (currentBionda.tag != "Smart")
            {
@@ -170,5 +172,18 @@ public class BiondeManager : MonoBehaviour
            }
         }
 	return false;
+    }
+
+    public GameObject[] getListOfBlondGameObjects()
+    {
+	if (allBionde != null)
+        {
+	   return allBionde;
+        }
+        else 
+	{
+           GameObject[] blondeGameObjects;
+	   return blondeGameObjects = GameObject.FindGameObjectsWithTag("Bionda");
+        }
     }
 }

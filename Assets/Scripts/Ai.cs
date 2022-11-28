@@ -10,6 +10,7 @@ public class Ai : MonoBehaviour
     public float radius;
 
     public Animator biondaAnimator;
+    private GameObject[] allBionde;
 
     private void Start()
     {
@@ -18,10 +19,21 @@ public class Ai : MonoBehaviour
 
     private void Update()
     {
+	if (allBionde == null)
+        {
+           allBionde = BiondeManager.Instance.getListOfBlondGameObjects();
+        }
         if (!agent.hasPath)
         {
             agent.SetDestination(GetPoints.Instance.GetRandomPoint(transform, radius));
-            biondaAnimator.SetBool("isRunning", true);
+            if (allBionde != null)
+            {
+               foreach (GameObject currentBionda in allBionde) 
+	       {
+                    currentBionda.GetComponent<Animator>();
+                    biondaAnimator.SetBool("isRunning", true);
+               }
+            }
         }
     }
 
