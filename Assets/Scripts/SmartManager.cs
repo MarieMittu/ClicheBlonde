@@ -64,6 +64,11 @@ public class SmartManager : MonoBehaviour
          
         }
 
+        if(GenerateSmart.Instance.smartCount == 0)
+        {
+            FindObjectOfType<GameManager>().WonGame();
+        }
+
     }
 
     void FleeFromPlayer(GameObject currentSmart)
@@ -98,6 +103,7 @@ public class SmartManager : MonoBehaviour
             //            isHit = true;
             StaminaManager.Instance.Increase();
             ScoreManager.Instance.AddScore();
+            GenerateSmart.Instance.DecreaseSmart();
             Debug.Log("Increase");
        
             Destroy(collision.gameObject);

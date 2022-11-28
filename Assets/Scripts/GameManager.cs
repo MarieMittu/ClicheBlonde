@@ -14,4 +14,14 @@ public class GameManager : MonoBehaviour
 
 
     }
+
+    public void WonGame()
+    {
+
+        SceneManager.LoadScene("WonScene");
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+
+    }
 }

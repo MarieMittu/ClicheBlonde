@@ -77,6 +77,11 @@ public class ProfManager : MonoBehaviour
                     distToClosestBionda = distToBionda;
                     closestBionda = currentBionda;
                     GetComponent<NavMeshAgent>().destination = closestBionda.transform.position;
+
+                    if(distToBionda <= 2)
+                    {
+                        //hit anim, bool?
+                    }
                 }
 		}
             }
@@ -90,6 +95,7 @@ public class ProfManager : MonoBehaviour
             Instantiate(pinkShot, transform.position, Quaternion.identity);
             particleSystem.Play();
 
+            //idle or drunk anim
             isFollowing = false;
             Invoke("FollowsAgain", 5f);
 
@@ -100,6 +106,7 @@ public class ProfManager : MonoBehaviour
     void FollowsAgain()
     {
         isFollowing = true;
+        //run anim
     }
 
     public void DisableState()

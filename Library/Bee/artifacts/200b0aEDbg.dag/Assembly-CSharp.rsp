@@ -370,9 +370,11 @@
 "Assets/Scripts/ProfManager.cs"
 "Assets/Scripts/RemoveProf.cs"
 "Assets/Scripts/ScoreManager.cs"
+"Assets/Scripts/ScoreSaver.cs"
 "Assets/Scripts/SmartManager.cs"
 "Assets/Scripts/SpawnProf.cs"
 "Assets/Scripts/StaminaManager.cs"
+"Assets/Scripts/TutorialManager.cs"
 "Assets/Scripts/Utility.cs"
 "Assets/Scripts/WeaponManager.cs"
 -langversion:9.0

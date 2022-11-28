@@ -9,6 +9,27 @@ public class GenerateSmart : MonoBehaviour
     public int zPos;
     public int smartCount;
 
+    private static GenerateSmart _instance;
+
+    private GenerateSmart() { }
+
+    public static GenerateSmart Instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = new GenerateSmart();
+
+            return _instance;
+        }
+    }
+
+
+    void Awake()
+    {
+        _instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +46,10 @@ public class GenerateSmart : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
             smartCount += 1;
         }
+    }
+
+    public void DecreaseSmart()
+    {
+        smartCount--;
     }
 }
