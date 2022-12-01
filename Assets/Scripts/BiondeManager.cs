@@ -5,74 +5,128 @@ using UnityEngine.AI;
 
 public class BiondeManager : MonoBehaviour
 {
-
-
-    public GameObject player;
+    
+    public GameObject professor;
     public GenerateBionde genBionde;
-    public bool isHit = false;
-    public bool isHealed;
-    public bool isBlond;
-    public bool isSmart;
+    public GameObject smart;
+    public bool isHealed { get; set; }
+    private bool isProfInstantiated;
     private NavMeshAgent navAgent;
-    public float EnemyDistanceRun = 4.0f;
+    private GameObject[] allBionde;
+  
+    public float ProfDistanceRun = 4.0f;
+    public Animator biondaAnimator;
+
+
+    private static BiondeManager _instance;    
+
+    private BiondeManager() { }
+
+    public static BiondeManager Instance
+    {
+        get
+        {
+            if(_instance == null)
+                _instance = new BiondeManager();
+
+            return _instance;
+        }
+    }
+    
+
+    void Awake()
+    {
+        _instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        isProfInstantiated = false;
         navAgent = GetComponent<NavMeshAgent>();
+	allBionde = GameObject.FindGameObjectsWithTag("Blond");
+        _instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        Debug.Log("Distance: " + distance);
-
-        if (distance < EnemyDistanceRun)
+        if(!isProfInstantiated && SpawnProf.Instance.isProfSpawned) 
         {
-            Vector3 dirToPlayer = transform.position - player.transform.position;
-            Vector3 newPos = transform.position + dirToPlayer;
-            navAgent.SetDestination(newPos);
+            professor = GameObject.FindGameObjectWithTag("Prof");
+	    isProfInstantiated = true;
+	    Debug.Log("Prof has been instantiated.");
         }
+	foreach (GameObject currentBionda in allBionde) 
+	{
+        
+            
+            if(currentBionda.tag == "Blond" && SpawnProf.Instance.isProfSpawned && isProfInstantiated)
+            {
+                FleeFromProf(currentBionda);
+            }
+	}
+       
+    }
+
+
+    void FleeFromProf(GameObject currentBionda)
+    {
+        biondaAnimator = currentBionda.GetComponent<Animator>();
+        float distance = Vector3.Distance(transform.position, professor.transform.position);
+        //Debug.Log("Distance: " + distance);
+
+        if (distance < ProfDistanceRun)
+        {
+            Vector3 dirToProf = transform.position - professor.transform.position;
+            Vector3 newPos = transform.position + dirToProf;
+            navAgent.SetDestination(newPos);
+       
+        }
+        
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        GameObject currentBlonde = collision.gameObject;
+        Debug.Log("Current Game Object is : " + currentBlonde);
+	Debug.Log("Current Collider is : " + collision.collider);
+       if ((collision.gameObject.tag == "Prof" || collision.gameObject.tag == "Book") && this.gameObject.tag == "Blond") //change for "Book"
         {
-            //If the GameObject has the same tag as specified, output this message in the console
-            Debug.Log("Do something else here");
-            //isHit = true;
-            becomeBlond();
-        }
-        else if (collision.gameObject.tag == "Book")
-        {
-            //isHealed = true;
-            becomeSmart();
+	    Debug.Log("prof collided with : " + this.gameObject);
+            isHealed = true;
+            StaminaManager.Instance.Decrease();
+            Debug.Log("Increase");
+            Destroy(this.gameObject);
+            GameObject newSmart = Instantiate(smart) as GameObject;
+            newSmart.transform.position = this.gameObject.transform.position;
+            SmartManager smartManager = newSmart.GetComponent<SmartManager>();
         }
     }
 
-    public void becomeBlond()
+
+    public bool checkObjectBlond()
     {
-        
-            //become blond
-            Debug.Log("I'm BLOND!");
-            genBionde.biondeCount += 1;
-            isBlond = true;
-            isSmart = false;
-        
+        foreach (GameObject currentBionda in allBionde) 
+	{
+           if (currentBionda.tag == "Blond")
+           {
+              return true;
+           }
+        }
+	return false;
     }
 
-    public void becomeSmart()
+    public GameObject[] getListOfBlondGameObjects()
     {
-        
-            //become smart
-            Debug.Log("I'm SMART!");
-            isSmart = true;
-            isBlond = false;
-        
+	if (allBionde != null)
+        {
+	   return allBionde;
+        }
+        else 
+	{
+           GameObject[] blondeGameObjects;
+	   return blondeGameObjects = GameObject.FindGameObjectsWithTag("Blond");
+        }
     }
 }

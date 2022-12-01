@@ -9,6 +9,9 @@ public class Ai : MonoBehaviour
 
     public float radius;
 
+    public Animator biondaAnimator;
+    private GameObject[] allBionde;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -16,9 +19,21 @@ public class Ai : MonoBehaviour
 
     private void Update()
     {
+	if (allBionde == null)
+        {
+           allBionde = BiondeManager.Instance.getListOfBlondGameObjects();
+        }
         if (!agent.hasPath)
         {
             agent.SetDestination(GetPoints.Instance.GetRandomPoint(transform, radius));
+            if (allBionde != null)
+            {
+               foreach (GameObject currentBionda in allBionde) 
+	       {
+                    currentBionda.GetComponent<Animator>();
+                    
+               }
+            }
         }
     }
 

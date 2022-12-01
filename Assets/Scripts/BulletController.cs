@@ -7,6 +7,7 @@ public class BulletController : MonoBehaviour
     public float speed = 8f;
     public float lifeDuration = 2f;
     private float lifeTimer;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * speed * Time.deltaTime;
+        rb.transform.position += transform.forward * speed * Time.deltaTime;
         lifeTimer -= Time.deltaTime;
         if(lifeTimer <= 0f)
         {
